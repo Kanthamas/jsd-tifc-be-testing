@@ -20,6 +20,7 @@
 	},
 	"devDependencies": {
 		"chalk": "^5.4.1",
+		"mongodb-memory-server": "^10.1.4",
 		"supertest": "^7.1.0",
 		"vitest": "^3.1.2"
 	}
