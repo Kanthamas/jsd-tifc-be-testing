@@ -70,14 +70,23 @@ export const login = async (req, res, next) => {
 		if (!user) {
 			return res
 				.status(401)
-				.json({ error: true, message: "Invalid credentials" });
+				.json({ error: true, message: "Invalid credentials 73" });
 		}
 
+		// const comparePasswords = async (providedPassword, storedPasswordHash) => {
+		// 	const match = await bcrypt.compare(providedPassword, storedPasswordHash);
+		// 	return match;
+		// };
+
+		// const checkPwd = await comparePasswords(password, user.password);
+		// console.log("comparePasswords :", checkPwd);
+
 		const isPasswordMatched = await bcrypt.compare(password, user.password);
+
 		if (!isPasswordMatched) {
 			return res
 				.status(401)
-				.json({ error: true, message: "Invalid credentials" });
+				.json({ error: true, message: "Invalid credentials 80" });
 		}
 
 		const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
