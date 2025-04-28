@@ -5,8 +5,6 @@ import {
 import request from "supertest";
 import app from "../../app.js";
 import User from "../../models/user.model.js";
-import bcrypt from "bcryptjs";
-import { beforeEach, vi } from "vitest";
 
 beforeAll(async () => {
 	process.env.JWT_SECRET = "testsecret";
@@ -101,7 +99,6 @@ describe("POST /auth/register", () => {
 describe("POST /auth/login", () => {
 	const endpoint = "/api/v1/users/auth/login";
 	describe("Happy path: Given valid credentials", () => {
-
 		// beforeEach(async () => {
 		// 	const userInDb = await User.findOne({ email: "testuser@example.com" });
 		// 	console.log("Found User in DB:", userInDb);
