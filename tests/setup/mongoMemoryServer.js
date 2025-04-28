@@ -1,25 +1,16 @@
 import { MongoMemoryServer } from "mongodb-memory-server";
 import mongoose from "mongoose";
-import { beforeAll, afterAll, afterEach } from "vitest";
 
 let mongo;
 
-beforeAll(async () => {
+export const startMongoServer = async () => {
 	mongo = await MongoMemoryServer.create();
 	const uri = mongo.getUri();
-
 	await mongoose.connect(uri);
-});
+};
 
-afterEach(async () => {
-	const collections = await mongoose.connection.db.collections();
-
-	for (let collection of collections) {
-		await collection.deleteMany({});
-	}
-});
-
-afterAll(async () => {
+export const stopMongoServer = async () => {
+	await mongoose.connection.dropDatabase(); 
 	await mongoose.connection.close();
 	await mongo.stop();
-});
+};

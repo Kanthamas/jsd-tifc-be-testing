@@ -14,6 +14,11 @@ const app = express();
 
 app.use(express.json());
 
+// Health check endpoint
+app.get("/health-test", (req, res) => {
+	res.json({ error: false, message: "OK" });
+});
+
 // users with TURSO_DB
 // app.use("/api/v1/users", userRoutes);
 

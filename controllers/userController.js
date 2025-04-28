@@ -8,7 +8,7 @@ export const getAllUsers = async (req, res, next) => {
 
 		res.json({ message: "Fectched users successfully", data: users });
 	} catch (error) {
-		next(err);
+		next(error);
 	}
 };
 
