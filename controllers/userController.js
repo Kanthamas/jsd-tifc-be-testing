@@ -2,36 +2,36 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import User from "../models/user.model.js";
 
-export const getAllUsers = async (req, res, next) => {
-	try {
-		const users = await User.find();
+// export const getAllUsers = async (req, res, next) => {
+// 	try {
+// 		const users = await User.find();
 
-		res.json({ message: "Fectched users successfully", data: users });
-	} catch (error) {
-		next(error);
-	}
-};
+// 		res.json({ message: "Fectched users successfully", data: users });
+// 	} catch (error) {
+// 		next(error);
+// 	}
+// };
 
-export const createUser = async (req, res, next) => {
-	try {
-		const { name, email } = req.body;
+// export const createUser = async (req, res, next) => {
+// 	try {
+// 		const { name, email } = req.body;
 
-		const existingEmail = await User.findOne({ email });
-		if (existingEmail) {
-			return res
-				.status(409)
-				.json({ error: true, message: "Email already used" });
-		}
+// 		const existingEmail = await User.findOne({ email });
+// 		if (existingEmail) {
+// 			return res
+// 				.status(409)
+// 				.json({ error: true, message: "Email already used" });
+// 		}
 
-		const user = new User({ name, email });
+// 		const user = new User({ name, email });
 
-		await user.save();
+// 		await user.save();
 
-		res.status(201).json({ message: "Created user successfully", data: user });
-	} catch (error) {
-		next(error);
-	}
-};
+// 		res.status(201).json({ message: "Created user successfully", data: user });
+// 	} catch (error) {
+// 		next(error);
+// 	}
+// };
 
 export const register = async (req, res, next) => {
 	try {

@@ -6,15 +6,15 @@ import { verifyToken } from "./../middlewares/verifyToken.js";
 const router = Router();
 
 // GET all users
-router.get("/", userController.getAllUsers);
+// router.get("/", userController.getAllUsers);
 
 // CREATE user
-router.post("/", userController.createUser);
+// router.post("/", userController.createUser);
 
 // REGISTER new user
 router.post("/auth/register", userController.register);
 
 // LOGIN user
-router.post("/auth/login",userController.login);
+router.post("/auth/login", verifyToken, userController.login);
 
 export default router;
