@@ -1,7 +1,18 @@
 import { sum } from "./sum.js";
 
+// TEST SUITE ==> describe() block
+// TEST CASE ==> it(), test() block
+// describe("test suite name", () => {
+// 	it("should do something TC-01", () => {
+// 		// AAA
+// 	});
+// 	it("should do something TC-02", async () => {
+// 		// AAA await something()
+// 	});
+// });
+
 describe("sum function - happy path", () => {
-	it("should return the correct result for adding two positive numbers", () => {
+	it("should return the correct result for adding two positive numbers TC-01", () => {
 		// Arrange
 		const num1 = 2;
 		const num2 = 3;

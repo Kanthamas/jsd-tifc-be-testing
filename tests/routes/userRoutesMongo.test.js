@@ -71,7 +71,7 @@ describe("POST /auth/register", () => {
 			await existingUser.save();
 
 			const response = await request(app).post(endpoint).send({
-				name: "Bob Smith Duplicate",
+				name: "Bob Smith Duplicate 555",
 				email: "bob@example.com",
 				password: "newPassword",
 			});
@@ -83,9 +83,9 @@ describe("POST /auth/register", () => {
 	});
 
 	describe("Negative path: Missing input", () => {
-		it("should return an error if required fields are missing (Negative Path)", async () => {
+		it("should return an error if required fields are missing", async () => {
 			const response = await request(app).post(endpoint).send({
-				email: "missing@name.com",
+				email: "missing555@name.com",
 				// Missing name and password
 			});
 
@@ -125,7 +125,7 @@ describe("POST /auth/login", () => {
 
 			expect(response.status).toBe(401);
 			expect(response.body.error).toBe(true);
-			expect(response.body.message).toBe("Invalid credentials 80");
+			expect(response.body.message).toBe("Invalid credentials 89");
 		});
 
 		it("should return an error if email does not exist", async () => {

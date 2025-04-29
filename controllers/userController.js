@@ -86,7 +86,7 @@ export const login = async (req, res, next) => {
 		if (!isPasswordMatched) {
 			return res
 				.status(401)
-				.json({ error: true, message: "Invalid credentials 80" });
+				.json({ error: true, message: "Invalid credentials 89" });
 		}
 
 		const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {

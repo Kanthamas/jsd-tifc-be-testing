@@ -27,6 +27,8 @@ app.get("/health-test", (req, res) => {
 
 // users with MongoDB
 app.use("/api/v1/users", userRoutes);
+// -> Register POST /auth/register ===> /api/v1/users/auth/register 
+// ===> http://127.0.0.1:4100/api/v1/users/auth/register
 
 // notes with MongoDB
 app.use("/api/v1/notes", verifyToken, noteRoutes);
